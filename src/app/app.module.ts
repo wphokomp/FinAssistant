@@ -2,33 +2,37 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { SignInComponent } from './sign-in/sign-in.component';
+
+import { StatsComponent } from './stats/stats.component';
+import { PaymentsComponent } from './payments/payments.component';
+import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { HomepageComponent } from './homepage/homepage.component';
+import { FormsModule } from '@angular/forms';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SignInComponent,
+    StatsComponent,
+    PaymentsComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    RouterModule,
+    FormsModule,
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-
-/*
-doGETWithHeaders() {
-  console.log("GET WITH HEADERS");
-  let headers = new Headers();
-  headers.append('Authorization', btoa('username:password'));
-  let opts = new RequestOptions();
-  opts.headers = headers;
-  let url = `${this.apiRoot}/get`;
-  this.http.get(url, opts).subscribe(
-    res => console.log(res.json()),
-    msg => console.error(`Error: ${msg.status} ${msg.statusText}`)
-  );
-}
-*/
